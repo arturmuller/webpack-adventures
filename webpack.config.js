@@ -12,7 +12,11 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 // of heart. Good luck!
 
 // This is where Webpack starts crawling your dependency graph.
-var entry = ['./source/index'];
+var entry = [
+  'webpack-dev-server/client?http://0.0.0.0:8080',
+  'webpack/hot/only-dev-server',
+  './source/index'
+];
 
 // This is where your shit will be dumped once Webpack is finished with it.
 var output = {
@@ -85,15 +89,18 @@ var styleLoader = {
  */
 
 var scriptLoader = {
-  loader: 'babel',
+  loader: 'react-hot-loader!babel',
   include: path.resolve(__dirname, 'source'),
   test: /\.jsx$|\.js$/
 };
+
+var hotPlugin = new webpack.HotModuleReplacementPlugin();
 
 // Export everything
 module.exports = {
   entry: entry,
   output: output,
   resolve: resolve,
-  module: {loaders: [scriptLoader, styleLoader]}
+  module: {loaders: [scriptLoader, styleLoader]},
+  plugins: [hotPlugin]
 };
