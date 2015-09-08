@@ -1,0 +1,26 @@
+{
+  "name": "webpack-test",
+  "version": "0.1.0",
+  "description": "Testing webpack setup",
+  "main": "index.html",
+  "repository": "no fucking repo ok?!",
+  "scripts": {
+    "dev": "node devserver.js",
+    "prestart": "webpack",
+    "start": "open index.html"
+  },
+  "author": "Artur Muller",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^5.8.23",
+    "babel-loader": "^5.3.2",
+    "css-loader": "^0.17.0",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "less": "^2.5.1",
+    "less-loader": "^2.2.0",
+    "react": "^0.13.3",
+    "style-loader": "^0.12.3",
+    "webpack": "^1.12.1",
+    "webpack-dev-server": "^1.10.1"
+  }
+}
